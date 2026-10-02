@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 22s linear infinite;
+  --animate-pulse-ring: pulse-ring 4s ease-out infinite;
+  --animate-shimmer: shimmer 5s linear infinite;
+  --animate-blob: blob 16s ease-in-out infinite;
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-26px) rotate(10deg); } }
+  @keyframes pulse-ring { 0% { transform: scale(.75); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
+  @keyframes shimmer { to { background-position: 200% center; } }
+  @keyframes blob { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(60px,-40px) scale(1.15); } 66% { transform: translate(-40px,50px) scale(.9); } }
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+}
+
+@theme {
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-blink: blink 5s infinite;
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(0); } 96% { transform: scaleY(1); } }
+}
+
+@theme {
+  --animate-swing: swing 2.6s ease-in-out infinite;
+  --animate-wave: wave 1.4s ease-in-out infinite;
+  --animate-bob: bob 3s ease-in-out infinite;
+  --animate-confetti: confetti 2.2s ease-out infinite;
+  @keyframes swing { 0%,100% { transform: translateX(-50%) rotate(-9deg); } 50% { transform: translateX(-50%) rotate(9deg); } }
+  @keyframes wave { 0%,100% { transform: rotate(-12deg) scale(1); } 50% { transform: rotate(14deg) scale(1.12); } }
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+  @keyframes confetti { 0% { transform: translate(0,0) rotate(0); opacity: 1; } 100% { transform: translate(var(--dx),var(--dy)) rotate(540deg); opacity: 0; } }
+}
+
+@media (pointer: fine) {
+  body, a, button, [role="button"] { cursor: none; }
+  input, textarea { cursor: text; }
+}
+
+/* ---------- theme helpers ---------- */
+:root { --glow: 244 63 94; }
+.dark { --glow: 125 211 252; color-scheme: dark; }
+
+/* Section / hero titles: warm gradient in light mode, animated light sky blue in dark mode */
+.title-grad {
+  background-image: linear-gradient(90deg, #ea580c, #f43f5e, #f59e0b, #ea580c);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+.dark .title-grad { background-image: linear-gradient(90deg, #bae6fd, #7dd3fc, #e0f2fe, #a5f3fc, #bae6fd); }
+
+/* Slow moving sky-blue light sweep behind dark pages */
+.aurora-sweep {
+  background: linear-gradient(115deg, transparent 20%, rgb(125 211 252 / 0.07) 40%, transparent 60%, rgb(56 189 248 / 0.06) 80%, transparent);
+  background-size: 250% 250%;
+  animation: sweep 18s ease-in-out infinite;
+}
+@keyframes sweep { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* Dark-mode text clarity */
+.dark body { -webkit-font-smoothing: antialiased; }
