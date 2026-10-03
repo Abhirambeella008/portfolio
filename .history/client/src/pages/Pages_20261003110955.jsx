@@ -99,8 +99,8 @@ export function Education() {
           <motion.div key={e.title} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 + i * 0.25 }} className="relative mb-8">
             <span className="absolute -left-[1.85rem] top-6 size-3 rounded-full bg-orange-500 ring-4 ring-orange-200 dark:bg-sky-300 dark:ring-sky-300/30" />
             <div className={card}>
-                <h3 className={h3}>{e.title}</h3>
-            <p className="mt-1 text-xs text-rose-500 dark:text-sky-300">{e.date}</p>
+                 <h3 className={h3}>{e.title}</h3>
+   <p className="mt-1 text-xs text-rose-500 dark:text-sky-300">{e.date}</p>
               <span className={`${chip} mt-3 inline-block`}>{e.score}</span>
             </div>
           </motion.div>
