@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import { Award, Briefcase, Code2, Download, Github, GraduationCap, Linkedin, Mail, MapPin, Phone, Rocket, Send, Trophy, User } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { User, Code2, Rocket, Briefcase, GraduationCap, Award, Trophy, Mail, Phone, MapPin, Linkedin, Github, Send, Download } from 'lucide-react';
+import { profile, stats, skills, internships, projects, education, certifications, achievements } from '../data.js';
 import { API } from '../api.js';
-import { Counter, Page, Tilt, card, chip, rise } from '../components/ui.jsx';
-import { achievements, certifications, education, internships, profile, projects, skills, stats } from '../data.js';
+import { Page, Counter, Tilt, card, chip, rise } from '../components/ui.jsx';
 
 const h3 = 'font-display text-lg font-bold text-slate-800 dark:text-sky-50';
 
@@ -179,10 +179,11 @@ export function Contact() {
           <button disabled={status === 'sending'} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-600 to-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:scale-105 disabled:opacity-60 dark:from-sky-400 dark:to-blue-500 dark:text-slate-950 dark:shadow-sky-500/30">
             <Send size={15} /> {status === 'sending' ? 'Sending…' : 'Send message'}
           </button>
-          {status === 'sent' && <p className="text-sm text-emerald-600 dark:text-emerald-300">Thank you for reaching out! Your message has been delivered successfully. I'll get back to you soon.</p>}
+          {status === 'sent' && <p className="text-sm text-emerald-600 dark:text-emerald-300">Thank you for reaching out! Your message has been delivered successfully. I'll get back Message Delivery. I'll reply soon.</p>}
           {status === 'error' && <p className="text-sm text-rose-600 dark:text-rose-300">Couldn't send the message. Email me directly at {profile.email}.</p>}
         </motion.form>
       </div>
     </Page>
   );
 }
+  

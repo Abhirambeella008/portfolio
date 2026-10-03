@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import { Award, Briefcase, Code2, Download, Github, GraduationCap, Linkedin, Mail, MapPin, Phone, Rocket, Send, Trophy, User } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { User, Code2, Rocket, Briefcase, GraduationCap, Award, Trophy, Mail, Phone, MapPin, Linkedin, Github, Send, Download } from 'lucide-react';
+import { profile, stats, skills, internships, projects, education, certifications, achievements } from '../data.js';
 import { API } from '../api.js';
-import { Counter, Page, Tilt, card, chip, rise } from '../components/ui.jsx';
-import { achievements, certifications, education, internships, profile, projects, skills, stats } from '../data.js';
+import { Page, Counter, Tilt, card, chip, rise } from '../components/ui.jsx';
 
 const h3 = 'font-display text-lg font-bold text-slate-800 dark:text-sky-50';
 
